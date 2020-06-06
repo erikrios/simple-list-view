@@ -6,7 +6,8 @@ void main() => runApp(MaterialApp(
     ));
 
 class HomeApp extends StatelessWidget {
-  List<int> dummyTexts = List<int>.generate(1000, (index) => index + 1);
+  
+  final List<int> dummyTexts = List<int>.generate(1000, (index) => index + 1);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -21,7 +22,15 @@ class HomeApp extends StatelessWidget {
               leading: Icon(
                   (index % 2 == 0) ? Icons.airport_shuttle : Icons.android),
               onTap: () {
-                print('Clicked on ${dummyTexts[index]}');
+                SnackBar snackBar = SnackBar(
+                  content: Text('You clicked on ${dummyTexts[index]}'),
+                  action: SnackBarAction(
+                      label: 'Undo',
+                      onPressed: () {
+                        print('Undo the action for item ${dummyTexts[index]}');
+                      }),
+                );
+                Scaffold.of(context).showSnackBar(snackBar);
               },
               contentPadding: EdgeInsets.all(8.0),
             );
