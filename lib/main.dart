@@ -23,10 +23,11 @@ class HomeApp extends StatelessWidget {
               onTap: () {
                 print('Clicked on ${dummyTexts[index]}');
               },
+              contentPadding: EdgeInsets.all(8.0),
             );
           },
           itemCount: dummyTexts.length,
-          padding: EdgeInsets.all(16.0),
+          padding: EdgeInsets.only(right: 16.0, left: 16.0),
         ),
       );
 }
