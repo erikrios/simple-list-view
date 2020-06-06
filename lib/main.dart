@@ -20,9 +20,13 @@ class HomeApp extends StatelessWidget {
               subtitle: Text("Subtitle for ${dummyTexts[index]}"),
               leading: Icon(
                   (index % 2 == 0) ? Icons.airport_shuttle : Icons.android),
+              onTap: () {
+                print('Clicked on ${dummyTexts[index]}');
+              },
             );
           },
           itemCount: dummyTexts.length,
+          padding: EdgeInsets.all(16.0),
         ),
       );
 }
