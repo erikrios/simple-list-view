@@ -6,8 +6,7 @@ void main() => runApp(MaterialApp(
     ));
 
 class HomeApp extends StatelessWidget {
-  
-  final List<int> dummyTexts = List<int>.generate(1000, (index) => index + 1);
+  final List<int> dummyTexts = List<int>.generate(10, (index) => index + 1);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -37,6 +36,14 @@ class HomeApp extends StatelessWidget {
           },
           itemCount: dummyTexts.length,
           padding: EdgeInsets.only(right: 16.0, left: 16.0),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            dummyTexts.add(dummyTexts.length + 1);
+            print('Add a new item');
+          },
+          child: Icon(Icons.add),
+          elevation: 5.0,
         ),
       );
 }
